@@ -7,13 +7,13 @@ const passport = require('passport');
 const path = require('path');
 
 require('dotenv').config();
-//require('./authentication');
-//const routes = require('./routes');
+require('./authentication');
+const routes = require('./routes');
 
 app.use(cors({ origin: process.env.ORIGIN }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
-//routes(router);
+routes(router);
 app.use('/api', router);
 app.use('/public', express.static('public'));
 app.use(
