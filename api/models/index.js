@@ -19,18 +19,20 @@ sequelize
   .then(() => {
     console.log('Connection has been established successfully.');
   })
-  .catch((err) => {
+  .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
 
 // loads every model in the models dir except for index
 fs.readdirSync(__dirname)
   .filter(
-    (file) =>
+    file =>
       file.indexOf('.') !== 0 &&
       file !== path.basename(__filename) &&
       file.slice(-3) === '.js'
   )
-  .forEach((file) => require('./' + file)(sequelize, DataTypes));
+  .forEach(file => require('./' + file)(sequelize, DataTypes));
+
+sequelize.models.posts.belongsTo(sequelize.models.users, { foreignKey: 'userId' });
 
 module.exports = sequelize;
