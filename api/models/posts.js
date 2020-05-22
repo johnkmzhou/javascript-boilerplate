@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       field: 'id',
     },
+    userId: { type: DataTypes.INTEGER(11), field: 'user_id', allowNull: false },
     post: {
       type: DataTypes.TEXT,
       field: 'post',
@@ -18,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: { msg: 'Missing post.' },
       },
     },
-    userId: { type: DataTypes.INTEGER(11), field: 'user_id', allowNull: false },
+    attachmentPath: {
+      type: DataTypes.STRING(255),
+      field: 'attachment_path',
+    },
     publishedAt: {
       type: DataTypes.DATE,
       field: 'published_at',

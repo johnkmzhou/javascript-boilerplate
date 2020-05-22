@@ -1,23 +1,60 @@
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');
-//const multer = require('multer');
-//const path = require('path');
-//const fs = require('fs');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 const bcrypt = require('bcrypt');
 const sequelize = require('./models');
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: async (req, file, cb) => {
+      try {
+        const dir = './uploads/' + req.user.id;
+        await fs.promises.mkdir(dir, { recursive: true });
+        cb(null, dir);
+      } catch (e) {
+        console.error(e);
+        cb(e, null);
+      }
+    },
+    filename: (req, file, cb) => {
+      cb(
+        null,
+        file.originalname.slice(0, -4) +
+          '-' +
+          Date.now() +
+          path.extname(file.originalname)
+      );
+    },
+  }),
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype !== 'application/pdf') {
+      return cb(new Error('Only pdf files are allowed!'), false);
+    }
+    cb(null, true);
+  },
+});
 
 module.exports = router => {
   router.post(
     '/create-post',
-    passport.authenticate('jwt', { session: false }),
+    [
+      passport.authenticate('jwt', { session: false }),
+      upload.single('attachment'),
+    ],
     async (req, res) => {
       try {
-        const result = await sequelize.models.posts.create({
-          post: req.body.post,
+        const values = {
           userId: req.user.id,
+          post: req.body.post,
           publishedAt: new Date(),
-        });
+        };
+        if (req.file) {
+          values.attachmentPath = '/' + req.file.path.replace(/\\/g, '/');
+        }
+        const result = await sequelize.models.posts.create(values);
         res.send(result);
       } catch (e) {
         console.error(e);
