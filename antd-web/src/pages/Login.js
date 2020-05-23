@@ -1,9 +1,16 @@
-import React from 'react';
-import { Form, Input, Button, Alert, Breadcrumb } from 'antd';
+import React, { useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import { Form, Input, Button, Alert } from 'antd';
 import { MainContainer } from '../layouts/MainContainer';
+import { handleErrors } from '../helper';
 
 export const Login = () => {
+  const history = useHistory();
+  const location = useLocation();
   const [form] = Form.useForm();
+  const [alert, setAlert] = useState(
+    location.state ? location.state.alert : null
+  );
 
   const formItemLayout = {
     labelCol: {
@@ -16,10 +23,36 @@ export const Login = () => {
     wrapperCol: { sm: { offset: 4 } },
   };
 
-  const onFinish = async values => {};
+  const onFinish = async values => {
+    try {
+      setAlert(null);
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+      if (res.ok) {
+        const json = await res.json();
+        sessionStorage.setItem('token', json.token);
+        if (location.state && location.state.previous) {
+          history.push(location.state.previous);
+        } else {
+          history.push('/create-post');
+        }
+      } else {
+        throw res;
+      }
+    } catch (e) {
+      handleErrors(e, setAlert, form);
+    }
+  };
 
   return (
     <MainContainer>
+      {alert && <Alert message={alert.message} type={alert.type} />}
       <Form form={form} {...formItemLayout} onFinish={onFinish}>
         <Form.Item
           name="username"

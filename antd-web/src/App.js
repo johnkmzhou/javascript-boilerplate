@@ -4,6 +4,8 @@ import { Layout } from 'antd';
 import { TopMenu } from './layouts/TopMenu';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
+import { CreatePost } from './pages/CreatePost';
+import { NoMatch } from './pages/NoMatch';
 
 function App() {
   return (
@@ -16,6 +18,12 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/create-post">
+            <CreatePost />
+          </Route>
+          <Route path="*">
+            <NoMatch />
           </Route>
         </Switch>
       </BrowserRouter>

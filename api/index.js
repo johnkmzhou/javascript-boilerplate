@@ -16,11 +16,7 @@ app.use(passport.initialize());
 routes(router);
 app.use('/api', router);
 app.use('/public', express.static('public'));
-app.use(
-  '/uploads',
-  passport.authenticate('jwt', { session: false }),
-  express.static('uploads')
-);
+app.use('/uploads', express.static('uploads'));
 
 if (process.env.NODE_ENV === 'development') {
   app.get('/', (req, res) => {
