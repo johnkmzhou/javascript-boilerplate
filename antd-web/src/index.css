@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+header,
+footer {
+  flex-shrink: 0;
+}
+
+.top-nav {
+  line-height: 64px;
+}
+
+.ant-layout.main-layout {
+  background: #fff;
+  flex: 1 0 auto;
+  /* not necessary when there is a sider */
+  flex-direction: row;
+}
+
+.ant-layout .main-content {
+  flex: 0 1 1012px;
+  margin: 0 auto;
+  padding: 24px;
+}

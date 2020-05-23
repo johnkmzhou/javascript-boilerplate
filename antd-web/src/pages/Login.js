@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Alert, Breadcrumb } from 'antd';
+import { MainContainer } from '../layouts/MainContainer';
 
 export const Login = () => {
   const [form] = Form.useForm();
@@ -18,7 +19,7 @@ export const Login = () => {
   const onFinish = async values => {};
 
   return (
-    <>
+    <MainContainer>
       <Form form={form} {...formItemLayout} onFinish={onFinish}>
         <Form.Item
           name="username"
@@ -40,6 +41,6 @@ export const Login = () => {
           </Button>
         </Form.Item>
       </Form>
-    </>
+    </MainContainer>
   );
 };
