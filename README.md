@@ -12,4 +12,4 @@ Boilerplate example code to start up projects.
 
 ## Setup
 
-Check the README.md files in /api and /web for setup instructions. To start up both projects, run: `/start.ps1`
+Check the README.md files for each project.
