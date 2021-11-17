@@ -1,0 +1,15 @@
+@import './custom.css';
+
+@import './navbar.css';
+
+@import './onboarding.css';
+
+@import './stats.css';
+
+@import './register.css';
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;

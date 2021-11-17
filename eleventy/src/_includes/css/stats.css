@@ -1,0 +1,23 @@
+.stat-item {
+  @apply p-6 flex-1 text-white flex flex-col items-center;
+  @apply first:rounded-t-lg md:first:rounded-l-lg md:first:rounded-r-none last:rounded-b-lg md:last:rounded-r-lg md:last:rounded-l-none;
+}
+
+.stat-item strong,
+.stat-item b {
+  @apply block text-5xl md:text-4xl mt-3 mb-1 font-medium;
+}
+
+.stat-item p {
+  @apply block text-xl md:text-base;
+}
+
+.stat-icon {
+  @apply w-16 h-16 md:w-14 md:h-14 fill-current;
+}
+
+.text-cols {
+  @apply text-justify;
+  columns: 20em 2;
+  column-gap: 2em;
+}

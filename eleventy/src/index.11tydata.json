@@ -1,0 +1,70 @@
+{
+  "layout": "base.njk",
+  "pageLogo": "file",
+  "pageTitle": "Landing Page",
+  "heroHeadline": "Operationalize your branded messaging with obsessive data toolkits.",
+  "heroSubheading": "Gather more peace of mind from every social media follower with user-first deep learning models.",
+  "heroCallToActionText": "Try It Out",
+  "heroImg": { "alt": "hero image", "src": "https://images.unsplash.com/photo-1487088678257-3a541e6e3922?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80" },
+  "featuresSubheading": "Connect apps across organizations with customer-focused engagement statistics.",
+  "features": [
+    {
+      "title": "Feature 1",
+      "icon": "cogs",
+      "content": "Customize your purpose-driven strategies with real-time measurements."
+    },
+    {
+      "title": "Feature 2",
+      "icon": "globe-americas",
+      "content": "Squeeze more impact from every tired visitor using predictive data solutions."
+    },
+    {
+      "title": "Feature 3",
+      "icon": "bell",
+      "content": "Drain more conversions from each user using flexible tracking solutions."
+    },
+    {
+      "title": "Feature 4",
+      "icon": "bullseye",
+      "content": "Streamline across cloud platforms with full-stack chatbot services."
+    },
+    {
+      "title": "Feature 5",
+      "icon": "chart-line",
+      "content": "Unleash your mobile content with predatory chat services."
+    },
+    {
+      "title": "Feature 6",
+      "icon": "lock",
+      "content": "Bleed more trust from every affiliate using battle-tested solution platforms."
+    }
+  ],
+  "featuresFooter": "...and so much more!",
+  "onboardingSubheading": "Send spam between marketing channels with mobile-first advertising solutions.",
+  "onboardingSteps": [
+    "Integrate across organizations using obsessive machine learning models.",
+    "Gather more dollars from every one of your old friends, with production-ready analytics frameworks.",
+    "Capture more revenue share from each customer with next-generation content platforms.",
+    "Maximize your digital touchpoints using weapons-grade measurements.",
+    "Add value to your collaborative engagement with customer-focused conversion funnels."
+  ],
+  "statsSubheading": "Get more upvotes from each viewer using data-driven analytics.",
+  "registerSubheading": "Unlock your dynamic decisions with best-practice market intelligence.",
+  "quotes": [
+    {
+      "name": "John Doe",
+      "title": "Ipsum consequat",
+      "quote": "The reciprocity of fragmentation is truly rather open-minded in its economics."
+    },
+    {
+      "name": "John Doe",
+      "title": "Amed sed feugiat",
+      "quote": "The injustice of pride is philisophical in its tenacity."
+    },
+    {
+      "name": "John Doe",
+      "title": "Dolor nullam",
+      "quote": "The omnipotence of trendiness is almost paradoxical in its omniscience."
+    }
+  ]
+}

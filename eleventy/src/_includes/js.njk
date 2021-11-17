@@ -1,0 +1,114 @@
+<script src="/js/axios@{% axiosVersion %}/dist/axios.min.js"></script>
+<script>
+  function navToggle() {
+    let btn = document.getElementById('menuBtn');
+    let nav = document.getElementById('menu');
+
+    btn
+      .classList
+      .toggle('open');
+    nav
+      .classList
+      .toggle('flex');
+    nav
+      .classList
+      .toggle('hidden');
+  }
+
+  window.addEventListener('scroll', function () {
+    let btt = document.getElementById('btt');
+
+    if (window.scrollY >= 1080) {
+      btt
+        .classList
+        .remove('hidden');
+      btt
+        .classList
+        .add('block');
+    } else {
+      btt
+        .classList
+        .add('hidden');
+      btt
+        .classList
+        .remove('block');
+    }
+  });
+
+  // onboarding
+  const steps = document.querySelectorAll('.step');
+  const timeline = document.querySelector('.timeline');
+  const line = document.querySelector('.line');
+  let prevScrollY = window.scrollY;
+  let downDirection;
+  let full = false;
+  let set = 0;
+  const targetY = window.innerHeight;
+
+  function scrollHandler(e) {
+  console.log(e)
+    const {scrollY} = window;
+    downDirection = scrollY < prevScrollY;
+    const timelineRect = timeline.getBoundingClientRect();
+    const lineRect = line.getBoundingClientRect();
+    const remToPx = parseInt(getComputedStyle(document.documentElement).fontSize);
+
+    // distance from top of timeline to bottom of window
+    const dist = targetY - timelineRect.top;
+    const lineDist = dist - 7 * remToPx;
+
+    if (!downDirection && !full) {
+      set = Math.max(set, lineDist);
+      line.style.bottom = `calc(100% - ${set}px)`;
+    }
+
+    if (lineDist > timeline.offsetHeight - 7 * remToPx && !full) {
+      line.style.bottom = "7rem";
+      full = true;
+    }
+
+    steps.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+
+      if (rect.top + item.offsetHeight < targetY) {
+        item
+          .classList
+          .add("show-me");
+      }
+    });
+
+    prevScrollY = window.scrollY;
+  }
+
+  scrollHandler();
+  window.addEventListener("scroll", scrollHandler);
+
+  // registration
+  const form = document.querySelector("form");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const errorElement = document.querySelector("#error-message");
+    errorElement.textContent = "";
+    const successElement = document.querySelector("#success-message");
+    successElement.textContent = "";
+
+    axios
+      .post("/api/email-registration", {
+        email: form
+          .querySelector("#email")
+          .value
+      })
+      .then(function (response) {
+        successElement.textContent = response.data;
+      })
+      .catch(function (error) {
+        if (error.response) {
+          errorElement.textContent = error.response.data;
+        } else if (error.request) {
+          errorElement.textContent = "Server unresponsive.";
+        } else {
+          errorElement.textContent = error.message;
+        }
+      });
+  });
+</script>

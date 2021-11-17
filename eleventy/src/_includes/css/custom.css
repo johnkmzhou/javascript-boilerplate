@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  scroll-behavior: smooth;
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* scrollbar styles */
+@media (min-width: 576px) {
+  body::-webkit-scrollbar-track {
+    @apply bg-gray-50 shadow-inner;
+  }
+
+  body::-webkit-scrollbar {
+    @apply bg-gray-50 w-2;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    @apply bg-purple-500;
+  }
+}
+
+.btn {
+  @apply whitespace-nowrap inline-block rounded-md text-center border font-bold text-base py-3 px-6 text-white bg-purple-500 hover:bg-purple-700;
+}
+
+.section-container {
+  @apply py-8 sm:py-14 px-4 lg:max-w-5xl mx-auto text-center;
+}
+
+.text-container {
+  @apply text-center mx-4 sm:mx-8;
+}
+
+.section-title {
+  @apply font-bold text-4xl mb-4;
+}
+
+.link {
+  @apply hover:text-purple-500 no-underline;
+}

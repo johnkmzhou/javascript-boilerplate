@@ -1,0 +1,19 @@
+<section id="statistics" class="bg-blue-50">
+  <div class="section-container">
+    <div class="text-container">
+      <h2 class="section-title">Statistics</h2>
+      <p class="font-semibold text-gray-500 text-xl mb-6">{{statsSubheading}}</p>
+    </div>
+    <ul class="block md:flex w-80 md:w-full max-w-full m-auto my-12">
+      {% for item in stats %}
+        <li id="stats-{{loop.index}}" class="stat-item {{item.color}}">
+          <svg class="stat-icon">
+            <use xlink:href="/{% generateSvgHash %}.sprite.svg#{{item.icon}}" href="/{% generateSvgHash %}.sprite.svg#{{item.icon}}"/>
+          </svg>
+          <strong>{{item.data}}</strong>
+          <p>{{item.name}}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

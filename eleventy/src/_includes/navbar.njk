@@ -1,0 +1,26 @@
+<nav
+  class="flex flex-col sm:flex-row w-full justify-between self-center items-center px-4 sm:px-6 py-1 sm:py-4 sm:bg-transparent shadow sm:shadow-none">
+  <div
+    class="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
+    <svg class="w-9 h-9">
+      {% include "gradient.njk" %}
+      <use xlink:href="/{% generateSvgHash %}.sprite.svg#{{pageLogo}}" href="/{% generateSvgHash %}.sprite.svg#{{pageLogo}}" fill="url('#logo-gradient')"/>
+    </svg>
+    <span class="text-purple-600 font-bold text-2xl pl-3">{{ pageTitle }}</span>
+    <button id="menuBtn" class="hamburger block sm:hidden focus:outline-none" type="button" onclick="navToggle();" aria-label="Show Menu">
+      <span
+        class="hamburger__top-bun"></span>
+      <span class="hamburger__bottom-bun"></span></button>
+  </div>
+  <div id="menu"
+    class="w-full sm:w-auto self-end sm:self-center hidden sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0">
+    <a class="link nav-link"
+      href="#features">Features</a>
+      <a class="link nav-link"
+      href="#onboarding">Onboarding</a>
+    <a class="link nav-link"
+      href="#statistics">Statistics</a>
+    <a class="link nav-link"
+      href="#register">Register</a>
+  </div>
+</nav>

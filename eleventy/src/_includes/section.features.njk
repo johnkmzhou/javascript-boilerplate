@@ -1,0 +1,27 @@
+<section id="features" class="bg-blue-50">
+  <div class="section-container">
+    <div class="text-container">
+      <h2 class="section-title">Features</h2>
+      <p class="font-semibold text-gray-500 text-xl mb-6">
+        {{ featuresSubheading }}
+      </p>
+    </div>
+    <div class="self-center w-full flex flex-col sm:flex-row flex-wrap xl:px:0 text-left">
+      {% for item in features %}
+        <div class="w-full md:w-1/2 flex flex-row flex-no-wrap sm:px-8 py-6 sm:py-12">
+          <div class="h-20 w-20 mr-4 md:mr-6 bg-purple-300 rounded-full flex flex-none items-center justify-center mx-auto">
+            <svg class="w-9 h-9 fill-current text-white">
+              <use xlink:href="/{% generateSvgHash %}.sprite.svg#{{item.icon}}" href="/{% generateSvgHash %}.sprite.svg#{{item.icon}}"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-2xl uppercase mb-2 tracking-wide">{{ item.title }}</h3>
+            <p class="font-medium text-gray-500 text-lg">
+              {{ item.content | safe }}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <h3 class="font-semibold tracking-wide text-2xl my-6">{{featuresFooter}}</h3>
+  </section>

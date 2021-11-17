@@ -1,0 +1,35 @@
+---
+stats:
+  - name: Etiam
+    icon: copy
+    color: bg-rose-300
+    data: 5,120
+  - name: Magna
+    icon: lock
+    color: bg-fuchsia-300
+    data: 8,192
+  - name: Tempus
+    icon: search
+    color: bg-purple-300
+    data: 2,048
+  - name: Aliquam
+    icon: car-side
+    color: bg-indigo-300
+    data: 4,096
+  - name: Nullam
+    icon: heart-broken
+    color: bg-sky-300
+    data: 1,024
+---
+<header class="w-full min-h-screen">
+  <div class="w-full lg:max-w-5xl min-h-screen flex flex-col mx-auto">
+    {% include "navbar.njk" %}
+    {% include "header.njk" %}
+  </div>
+</header>
+<main>
+  {% include "section.features.njk" %}
+  {% include "section.onboarding.njk" %}
+  {% include "section.stats.njk" %}
+  {% include "section.register.njk" %}
+</main>

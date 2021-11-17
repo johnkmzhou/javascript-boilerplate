@@ -1,0 +1,29 @@
+.timeline {
+  @apply relative overflow-hidden -my-12;
+}
+
+.line {
+  @apply bg-purple-300 absolute top-28 w-0.5 z-20;
+  left: calc(50% - theme('spacing.px'));
+}
+
+.step {
+  @apply flex items-center h-56 z-10 -translate-x-full relative opacity-0 duration-500;
+  @apply font-medium last:text-xl text-gray-500 last:text-sky-500 text-lg;
+}
+
+.step:nth-child(odd) {
+  @apply text-left flex-row-reverse translate-x-full;
+}
+
+.step:nth-child(even) {
+  @apply text-right;
+}
+
+.content {
+  width: calc(50% - theme('spacing.8'));
+}
+
+.show-me:nth-child(n) {
+  @apply transform-none opacity-100;
+}

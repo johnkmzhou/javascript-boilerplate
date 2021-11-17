@@ -1,0 +1,36 @@
+<section id="register">
+  <div class="section-container">
+    <div class="text-container">
+      <h2 class="section-title">Register</h2>
+      <p class="font-semibold text-gray-500 text-xl">
+        {{registerSubheading}}
+      </p>
+    </div>
+    <div class="flex flex-col md:flex-row mt-12 space-y-8 md:space-y-0 md:space-x-8 md:justify-center text-left">
+      {% for item in quotes %}
+        <figure class="quote-container">
+          <svg class="w-5 h-5 fill-current text-purple-400">
+            <use xlink:href="/{% generateSvgHash %}.sprite.svg#quote-left" href="/{% generateSvgHash %}.sprite.svg#quote-left"/>
+          </svg>
+          <blockquote>{{item.quote}}</blockquote>
+          <figcaption>
+            <p>{{item.name}}</p>
+            <p>{{item.title}}</p>
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+    <form class="w-full max-w-xl mt-20 mb-10 mx-auto" id="registration-form" validate>
+      <div class="flex flex-col sm:flex-row sm:items-center">
+        <input id="email" class="rounded-border border-b border-purple-600 appearance-none bg-transparent w-full text-gray-600 focus:outline-none focus:bg-gray-50 mr-3 py-2 px-3" type="email" value="" name="email" placeholder="example@email.com" aria-label="Email Address" required>
+        <button class="btn flex-none mt-4 sm:mt-0" type="submit">
+              Sign Up
+            </button>
+      </div>
+      <div class="text-left">
+        <span id="error-message" class="text-red-500"></span>
+        <span id="success-message" class="text-green-500"></span>
+      </div>
+    </form>
+  </div>
+</section>
