@@ -6,12 +6,12 @@
     </div>
     <ul class="block md:flex w-80 md:w-full max-w-full m-auto my-12">
       {% for item in stats %}
-        <li id="stats-{{loop.index}}" class="stat-item {{item.color}}">
-          <svg class="stat-icon">
+        <li id="stats-{{loop.index}}" class="p-6 flex-1 text-white flex flex-col items-center first:rounded-t-lg md:first:rounded-l-lg md:first:rounded-r-none last:rounded-b-lg md:last:rounded-r-lg md:last:rounded-l-none {{item.color}}">
+          <svg class="w-16 h-16 md:w-14 md:h-14 fill-current">
             <use xlink:href="/{% generateSvgHash %}.sprite.svg#{{item.icon}}" href="/{% generateSvgHash %}.sprite.svg#{{item.icon}}"/>
           </svg>
-          <strong>{{item.data}}</strong>
-          <p>{{item.name}}</p>
+          <strong class="block text-5xl md:text-4xl mt-3 mb-1 font-medium">{{item.data}}</strong>
+          <p class="block text-xl md:text-base">{{item.name}}</p>
         </li>
       {% endfor %}
     </ul>

@@ -15,6 +15,7 @@
       .toggle('hidden');
   }
 
+  // up button
   window.addEventListener('scroll', function () {
     let btt = document.getElementById('btt');
 
@@ -37,7 +38,7 @@
 
   // onboarding
   const steps = document.querySelectorAll('.step');
-  const timeline = document.querySelector('.timeline');
+  const timeline = document.querySelector('#timeline');
   const line = document.querySelector('.line');
   let prevScrollY = window.scrollY;
   let downDirection;
@@ -46,7 +47,6 @@
   const targetY = window.innerHeight;
 
   function scrollHandler(e) {
-  console.log(e)
     const {scrollY} = window;
     downDirection = scrollY < prevScrollY;
     const timelineRect = timeline.getBoundingClientRect();

@@ -4,8 +4,6 @@
 
 @import './onboarding.css';
 
-@import './stats.css';
-
 @tailwind base;
 
 @tailwind components;
@@ -31,10 +29,6 @@
 
   .link {
     @apply hover:text-purple-500 no-underline;
-  }
-
-  .hover-card {
-    @apply w-8/12 hover:w-10/12 h-60 hover:h-72 duration-300 bg-sky-300 text-sky-300 hover:text-purple-400 hover:bg-opacity-75 rounded-lg flex justify-center items-center text-3xl;
   }
 
   .list-title {
