@@ -15,7 +15,11 @@ module.exports = function (eleventyConfig) {
   let cssHash;
   eleventyConfig.addShortcode('generateCssHash', function () {
     if (!cssHash) {
-      const cssFiles = glob.sync([`src/_includes/css/**/*.css`]);
+      // need to read all files that may have tailwind classes
+      const cssFiles = glob.sync([
+        `src/_includes/css/**/*.css`,
+        'src/**/*.njk',
+      ]);
       const cssContent = cssFiles
         .map(cssFile => fs.readFileSync(cssFile))
         .join('');
